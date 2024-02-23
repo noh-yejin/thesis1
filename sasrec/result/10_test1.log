@@ -1,0 +1,62 @@
+average sequence length: 1.52
+Python 3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.15.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: [1;31m---------------------------------------------------------------------------[0m
+[1;31mKeyboardInterrupt[0m                         Traceback (most recent call last)
+File [1;32m~/project/SASRec.pytorch/main.py:93[0m
+[0;32m     90[0m     t_test [38;5;241m=[39m evaluate(model, dataset, args)  [38;5;66;03m# evaluate에서 model.predict호출[39;00m
+[0;32m     92[0m     [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mtest (NDCG@10: [39m[38;5;132;01m%.4f[39;00m[38;5;124m, HR@10: [39m[38;5;132;01m%.4f[39;00m[38;5;124m)[39m[38;5;124m'[39m [38;5;241m%[39m (t_test[[38;5;241m0[39m], t_test[[38;5;241m1[39m]))
+[1;32m---> 93[0m [38;5;28;01mimport[39;00m [38;5;21;01mIPython[39;00m; IPython[38;5;241m.[39membed(colors[38;5;241m=[39m[38;5;124m"[39m[38;5;124mLinux[39m[38;5;124m"[39m); exit([38;5;241m1[39m)
+[0;32m     95[0m [38;5;66;03m# import IPython; IPython.embed(colors="Linux"); exit(1)[39;00m
+[0;32m     96[0m [38;5;66;03m# ce_criterion = torch.nn.CrossEntropyLoss()[39;00m
+[0;32m     97[0m [38;5;66;03m# https://github.com/NVIDIA/pix2pixHD/issues/9 how could an old bug appear again...[39;00m
+[0;32m     98[0m bce_criterion [38;5;241m=[39m torch[38;5;241m.[39mnn[38;5;241m.[39mBCEWithLogitsLoss() [38;5;66;03m# torch.nn.BCELoss()+sigmoid (이진 분류 문제에서 사용, output이 0~1사이의 값일 필요x)[39;00m
+
+File [1;32m~/anaconda3/envs/env1/lib/python3.11/site-packages/IPython/terminal/embed.py:409[0m, in [0;36membed[1;34m(header, compile_flags, **kwargs)[0m
+[0;32m    406[0m frame [38;5;241m=[39m sys[38;5;241m.[39m_getframe([38;5;241m1[39m)
+[0;32m    407[0m shell [38;5;241m=[39m InteractiveShellEmbed[38;5;241m.[39minstance(_init_location_id[38;5;241m=[39m[38;5;124m'[39m[38;5;132;01m%s[39;00m[38;5;124m:[39m[38;5;132;01m%s[39;00m[38;5;124m'[39m [38;5;241m%[39m (
+[0;32m    408[0m     frame[38;5;241m.[39mf_code[38;5;241m.[39mco_filename, frame[38;5;241m.[39mf_lineno), [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[1;32m--> 409[0m shell(header[38;5;241m=[39mheader, stack_depth[38;5;241m=[39m[38;5;241m2[39m, compile_flags[38;5;241m=[39mcompile_flags,
+[0;32m    410[0m     _call_location_id[38;5;241m=[39m[38;5;124m'[39m[38;5;132;01m%s[39;00m[38;5;124m:[39m[38;5;132;01m%s[39;00m[38;5;124m'[39m [38;5;241m%[39m (frame[38;5;241m.[39mf_code[38;5;241m.[39mco_filename, frame[38;5;241m.[39mf_lineno))
+[0;32m    411[0m InteractiveShellEmbed[38;5;241m.[39mclear_instance()
+[0;32m    412[0m [38;5;66;03m#restore previous instance[39;00m
+
+File [1;32m~/anaconda3/envs/env1/lib/python3.11/site-packages/IPython/terminal/embed.py:245[0m, in [0;36mInteractiveShellEmbed.__call__[1;34m(self, header, local_ns, module, dummy, stack_depth, compile_flags, **kw)[0m
+[0;32m    241[0m     [38;5;28mself[39m[38;5;241m.[39mshow_banner()
+[0;32m    243[0m [38;5;66;03m# Call the embedding code with a stack depth of 1 so it can skip over[39;00m
+[0;32m    244[0m [38;5;66;03m# our call and get the original caller's namespaces.[39;00m
+[1;32m--> 245[0m [38;5;28mself[39m[38;5;241m.[39mmainloop(
+[0;32m    246[0m     local_ns, module, stack_depth[38;5;241m=[39mstack_depth, compile_flags[38;5;241m=[39mcompile_flags
+[0;32m    247[0m )
+[0;32m    249[0m [38;5;28mself[39m[38;5;241m.[39mbanner2 [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mold_banner2
+[0;32m    251[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mexit_msg [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [1;32m~/anaconda3/envs/env1/lib/python3.11/site-packages/IPython/terminal/embed.py:337[0m, in [0;36mInteractiveShellEmbed.mainloop[1;34m(self, local_ns, module, stack_depth, compile_flags)[0m
+[0;32m    334[0m [38;5;28mself[39m[38;5;241m.[39mset_completer_frame()
+[0;32m    336[0m [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39mbuiltin_trap, [38;5;28mself[39m[38;5;241m.[39mdisplay_trap:
+[1;32m--> 337[0m     [38;5;28mself[39m[38;5;241m.[39minteract()
+[0;32m    339[0m [38;5;66;03m# now, purge out the local namespace of IPython's hidden variables.[39;00m
+[0;32m    340[0m [38;5;28;01mif[39;00m local_ns [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+File [1;32m~/anaconda3/envs/env1/lib/python3.11/site-packages/IPython/terminal/interactiveshell.py:873[0m, in [0;36mTerminalInteractiveShell.interact[1;34m(self)[0m
+[0;32m    870[0m [38;5;28mprint[39m([38;5;28mself[39m[38;5;241m.[39mseparate_in, end[38;5;241m=[39m[38;5;124m'[39m[38;5;124m'[39m)
+[0;32m    872[0m [38;5;28;01mtry[39;00m:
+[1;32m--> 873[0m     code [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mprompt_for_code()
+[0;32m    874[0m [38;5;28;01mexcept[39;00m [38;5;167;01mEOFError[39;00m:
+[0;32m    875[0m     [38;5;28;01mif[39;00m ([38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39mconfirm_exit) \
+[0;32m    876[0m             [38;5;129;01mor[39;00m [38;5;28mself[39m[38;5;241m.[39mask_yes_no([38;5;124m'[39m[38;5;124mDo you really want to exit ([y]/n)?[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124my[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mn[39m[38;5;124m'[39m):
+
+File [1;32m~/anaconda3/envs/env1/lib/python3.11/site-packages/IPython/terminal/interactiveshell.py:615[0m, in [0;36mTerminalInteractiveShell.init_prompt_toolkit_cli.<locals>.prompt[1;34m()[0m
+[0;32m    613[0m [38;5;28;01mdef[39;00m [38;5;21mprompt[39m():
+[0;32m    614[0m     prompt_text [38;5;241m=[39m [38;5;124m"[39m[38;5;124m"[39m[38;5;241m.[39mjoin(x[[38;5;241m1[39m] [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39mprompts[38;5;241m.[39min_prompt_tokens())
+[1;32m--> 615[0m     lines [38;5;241m=[39m [[38;5;28minput[39m(prompt_text)]
+[0;32m    616[0m     prompt_continuation [38;5;241m=[39m [38;5;124m"[39m[38;5;124m"[39m[38;5;241m.[39mjoin(x[[38;5;241m1[39m] [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39mprompts[38;5;241m.[39mcontinuation_prompt_tokens())
+[0;32m    617[0m     [38;5;28;01mwhile[39;00m [38;5;28mself[39m[38;5;241m.[39mcheck_complete([38;5;124m'[39m[38;5;130;01m\n[39;00m[38;5;124m'[39m[38;5;241m.[39mjoin(lines))[[38;5;241m0[39m] [38;5;241m==[39m [38;5;124m'[39m[38;5;124mincomplete[39m[38;5;124m'[39m:
+
+File [1;32m~/anaconda3/envs/env1/lib/python3.11/site-packages/IPython/utils/py3compat.py:48[0m, in [0;36minput[1;34m(prompt)[0m
+[0;32m     47[0m [38;5;28;01mdef[39;00m [38;5;21minput[39m(prompt[38;5;241m=[39m[38;5;124m"[39m[38;5;124m"[39m):
+[1;32m---> 48[0m     [38;5;28;01mreturn[39;00m builtin_mod[38;5;241m.[39minput(prompt)
+
+[1;31mKeyboardInterrupt[0m: 
