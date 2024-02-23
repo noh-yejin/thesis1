@@ -45,7 +45,7 @@ def main():
     parser.add_argument("--gpu_id", default="0", type=str, help="gpu_id")
 
     parser.add_argument('--pvn_weight', default=0.005, type=float)
-    parser.add_argument("--fusion_type", default="add", type=str)
+    parser.add_argument("--fusion_type", default="gate", type=str)
     parser.add_argument("--side_info_fused", action="store_false", help="frlp")
     args = parser.parse_args()
     print(args)
@@ -69,11 +69,12 @@ def main():
     if args.cuda_condition:
         args.items_feature = args.items_feature.cuda()
 
-    if args.full_sort:
-        args.valid_rating_matrix, args.test_rating_matrix = get_rating_matrix(data_dic)
+    if args.full_sort:  # 뭐하는 코드지?
+        args.valid_rating_matrix, args.test_rating_matrix = get_rating_matrix(data_dic) 
 
     train_dataloader, eval_dataloader, test_dataloader = get_dataloader(args, data_dic)
     model = DLFSRecModel(args=args)
+
     trainer = DLFSRecTrainer(model, train_dataloader, eval_dataloader, test_dataloader, args)
 
     if args.do_eval:

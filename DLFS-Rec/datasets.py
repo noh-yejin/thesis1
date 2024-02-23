@@ -34,7 +34,7 @@ class DLFSRecDataset(Dataset):
     def __init__(self, args, user_seq, test_neg_items=None, data_type='train'):
         self.args = args
         self.user_seq = []
-        self.max_len = args.max_seq_length
+        self.max_len = args.max_seq_length  # default 50
 
         if data_type == 'train':
             for seq in user_seq:
@@ -91,5 +91,7 @@ class DLFSRecDataset(Dataset):
             cur_tensors = (inputs, pos, neg, test_samples)
         else:
             cur_tensors = (inputs, pos, neg)
+        
+
 
         return cur_tensors

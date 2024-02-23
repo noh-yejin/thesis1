@@ -6,7 +6,7 @@ import random
 
 import numpy as np
 import torch
-from scipy.sparse import csr_matrix
+from scipy.sparse import csr_matrix  # scipy.sparse: 희소 행렬 및 선형 대수의 희소 행렬 연산을 위한 도구 제공
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 from datasets import DLFSRecDataset
 
@@ -274,14 +274,15 @@ def get_data_dic(args):
         items = [item for item, time in user_reviews[u]]
         data['user_seq'].append(items)
 
-    data['user_seq_wt_dic'] = user_reviews
+    data['user_seq_wt_dic'] = user_reviews # 숫자 리스트 형태?
     data['items_feat'] = dat['items_feat']
-    data['n_items'] = len(dat['item2id'])
-    data['n_users'] = len(dat['user2id']) - 1
-    data['n_categories'] = len(dat['category2id'])
-    data['n_brands'] = len(dat['brand2id'])
-    data['feature_size'] = 6 + 1 + data['n_categories'] + data['n_brands'] - 2
+    data['n_items'] = len(dat['item2id']) # 12102
+    data['n_users'] = len(dat['user2id']) - 1 # 22364
+    data['n_categories'] = len(dat['category2id'])  #249
+    data['n_brands'] = len(dat['brand2id']) # 2078
+    data['feature_size'] = 6 + 1 + data['n_categories'] + data['n_brands'] - 2  #2332 6+1,-2는 무슨 뜻이지?
     data['sample_seq'] = get_user_sample(args.data_dir + args.data_name + '_sample.txt')
+
     return data
 
 
@@ -297,7 +298,7 @@ def get_dataloader(args, seq_dic):
     test_dataset = DLFSRecDataset(args, seq_dic['user_seq_wt'], test_neg_items=seq_dic['sample_seq'], data_type='test')
     test_sampler = SequentialSampler(test_dataset)
     test_dataloader = DataLoader(test_dataset, sampler=test_sampler, batch_size=args.eval_batch_size)
-
+    
     return train_dataloader, eval_dataloader, test_dataloader
 
 
@@ -308,4 +309,5 @@ def get_feats_vec(feats, args):
     feat_brand = torch.zeros(feats.size(0), args['n_brands'])
     brand_vec = feat_brand.scatter_(index=feats[:, -1:].long(), value=1, dim=-1)
     vec = torch.cat((feats[:, :1], category_vec[:, 1:], brand_vec[:, 1:]), dim=1)
+
     return vec

@@ -66,7 +66,7 @@ class Encoder(nn.Module):
         super(Encoder, self).__init__()
         layer = Layer(args)
         self.layer = nn.ModuleList([copy.deepcopy(layer)
-                                    for _ in range(args.num_hidden_layers)])
+                                    for _ in range(args.num_hidden_layers)]) # args.num_hidden_layers개수만큼 레이어를 복사하여 저장
 
     def forward(self, mean_hidden_states, cov_hidden_states, output_all_encoded_layers=True):
         all_encoder_layers = []
